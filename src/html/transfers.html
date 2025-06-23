@@ -9,20 +9,20 @@
     <!-- TODO: <nav> -->
   </header>
   <div class="transfers__wrapper">
-    <div class="button-wrapper">
-      <button
-        class="button--new-transfer full-width"
-        data-behavior="newTransfer"
-      >
-        + New Transfer
-      </button>
-    </div>
     <div data-behavior="transfers-container"></div>
   </div>
-  <p style="margin-top: 2em; font-size: small; text-align: center">
-    Need help? Join our
-    <a href="https://t.me/AuroraSupport_bot" target="_blank" rel="noopener noreferrer">support telegram channel</a>
-  </p>
+  <footer class="transfers-footer">
+    <button
+      class="button--new-transfer"
+      data-behavior="newTransfer"
+    >
+      + New Transfer
+    </button>
+    <p style="margin-top: 1em; font-size: small;">
+      Need help? Join our
+      <a href="https://t.me/AuroraSupport_bot" target="_blank" rel="noopener noreferrer">support telegram channel</a>
+    </p>
+  </footer>
   <div data-behavior="deleteModal" class="modal" style="display: none">
     <div class="modal__container">
       <div class="modal-image__container">
@@ -111,18 +111,27 @@
       text-decoration: underline;
     }
 
-    .transfers__wrapper .button-wrapper {
+    .transfers-footer {
+      text-align: center;
+      margin-top: 2em;
       padding: 0 var(--spacing-m);
     }
 
-    @media (min-width: 600px) {
-      .transfers__wrapper .button-wrapper {
-        padding: 0;
-      }
+    .transfers-footer .button--new-transfer {
+      background-color: var(--blue-500);
+      color: white;
+      border: none;
+      border-radius: var(--br-small);
+      padding: 12px 24px;
+      font-size: var(--fs-body);
+      font-weight: var(--fw-medium);
+      cursor: pointer;
     }
 
-    .transfers__wrapper .button--new-transfer {
-      margin-bottom: var(--spacing-m);
+    @media (min-width: 600px) {
+      .transfers-footer {
+        padding: 0;
+      }
     }
 
     .transfer.in-progress {

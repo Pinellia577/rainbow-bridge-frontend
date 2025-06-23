@@ -26,14 +26,6 @@
         <button data-behavior="landingSubmit" class="full-width">
           Begin new transfer
         </button>
-        <button
-          type="button"
-          class="link button--missing-transfer"
-          data-behavior="showAutoSyncTransfersModal"
-          style="display: none;"
-        >
-          Scan my transfer history
-        </button>
       </div>
     </form>
     <p class="create-account">
@@ -46,6 +38,15 @@
       >.
     </p>
   </div>
+  <footer class="landing-footer">
+    <button
+      type="button"
+      class="link button--missing-transfer"
+      data-behavior="showAutoSyncTransfersModal"
+    >
+      Missing transfers?
+    </button>
+  </footer>
 </div>
 <style>
   .landing {
@@ -95,20 +96,28 @@
   .cta-container {
     margin-top: var(--spacing-xxl);
   }
-  .cta-container .button--missing-transfer {
+  .landing-footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .landing-footer .button--missing-transfer {
     font-size: var(--fs-body);
     font-weight: var(--fw-regular);
-    margin-top: 0.5em;
+    color: var(--blue-500);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
   }
 </style>
 <script>
   async function renderLanding() {
     if (window.ethInitialized && window.nearInitialized) {
       window.dom.find("landingSubmit").disabled = false;
-      window.dom.show('showAutoSyncTransfersModal')
     } else {
       // window.dom.show("landing");
-      window.dom.hide('showAutoSyncTransfersModal')
       window.dom.find("landingSubmit").disabled = true;
       return;
     }
