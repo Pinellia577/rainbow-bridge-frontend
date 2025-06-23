@@ -97,6 +97,32 @@
 
   --aurora-green: #70D44B;
   --ethereum-blue: #5773e2;
+
+  /* Theme-aware colors */
+  --bg-primary: var(--white);
+  --bg-secondary: var(--gray-100);
+  --text-primary: var(--black);
+  --text-secondary: var(--gray-600);
+  --border-primary: var(--gray-300);
+  --border-secondary: var(--gray-200);
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme color overrides */
+    --bg-primary: var(--gray-800);
+    --bg-secondary: var(--gray-700);
+    --text-primary: var(--white);
+    --text-secondary: var(--gray-300);
+    --border-primary: var(--gray-600);
+    --border-secondary: var(--gray-700);
+    
+    /* Adjust specific colors for dark theme */
+    --gray-100: #2a2a2a;
+    --gray-200: #3a3a3a;
+    --gray-300: #4a4a4a;
+  }
 }
 
 * {
@@ -118,6 +144,9 @@ html {
 body {
   margin: 0;
   padding-top: var(--header-height);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .content-wrapper {
@@ -133,7 +162,7 @@ h4,
 h5,
 h6 {
   font-weight: var(--fw-black);
-  color: var(--black);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -160,7 +189,7 @@ a:active,
 }
 
 p {
-  color: var(--gray-600);
+  color: var(--text-secondary);
   line-height: 1.5;
 }
 
@@ -264,13 +293,14 @@ fieldset {
 
 input,
 select {
-  background-color: var(--white);
-  border: 2px solid var(--gray-300);
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-primary);
   border-radius: 0.5em;
-  color: var(--gray-700);
+  color: var(--text-primary);
   padding: 0 var(--spacing-m);
   height: var(--input-height);
   width: 100%;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 input.error,
@@ -290,12 +320,12 @@ input::selection {
 }
 
 input:hover {
-  background-color: var(--gray-100);
+  background-color: var(--bg-secondary);
 }
 
 input:focus,
 input:active {
-  color: var(--gray-700);
+  color: var(--text-primary);
   border-color: var(--blue-400);
 }
 

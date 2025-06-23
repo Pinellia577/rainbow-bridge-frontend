@@ -79,7 +79,7 @@
   }
 
   .site-nav {
-    background-color: var(--white);
+    background-color: var(--bg-primary);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,8 +88,9 @@
     position: fixed;
     width: 100%;
     top: 0;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--border-secondary);
     z-index: 2;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .navLogo {
@@ -118,15 +119,16 @@
   }
 
   .dropdown-trigger {
-    background-color: var(--white);
-    border: 1px solid var(--gray-200);
-    color: var(--gray-700);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-secondary);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     height: 48px;
     width: 100%;
     font-weight: var(--fw-regular);
     padding-right: var(--spacing-xxl);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
 
   .dropdown-trigger::after {
@@ -143,21 +145,22 @@
   }
 
   .dropdown-trigger:hover {
-    background-color: var(--gray-100);
+    background-color: var(--bg-secondary);
   }
 
   .dropdown-list {
     width: 24em;
     display: none;
-    background-color: var(--white);
-    border: 1px solid var(--gray-300);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     margin: 0;
     overflow: hidden;
     padding-top: var(--base-spacing);
     padding-bottom: var(--base-spacing);
     text-align: left;
     min-width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
 
   .dropdown-list__heading {
@@ -188,7 +191,7 @@
   }
 
   .dropdown-list__item:hover {
-    background-color: var(--gray-100);
+    background-color: var(--bg-secondary);
   }
 
   .account-dropdown .dropdown-list__item:hover {
@@ -198,8 +201,9 @@
   button.dropdown-list__item {
     border: none;
     background-color: transparent;
-    color: var(--gray-700);
+    color: var(--text-primary);
     width: 100%;
+    transition: color 0.3s ease;
   }
 
   .bridge-indicator {
